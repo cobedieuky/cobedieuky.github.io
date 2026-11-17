@@ -313,5 +313,43 @@
       />
     </div>
     <audio id="music" loop preload="auto"></audio>
+    <script>
+    // Bro nhớ sửa lại ngày bắt đầu yêu của bro ở dòng dưới này nhé (Năm, Tháng - 1, Ngày)
+    // Ví dụ: 2023, 9, 20 là ngày 20/10/2023
+    const startDate = new Date(2023, 9, 20).getTime();
+    
+    // Ngày thi và ngày sinh nhật (bro có thể sửa tùy ý)
+    const examDate = new Date(2027, 5, 11).getTime();
+    const bdayDate = new Date(2024, 6, 21).getTime();
+
+    setInterval(() => {
+        const now = new Date().getTime();
+
+        // 1. Cập nhật số ngày yêu nhau
+        const diffLove = now - startDate;
+        const daysLove = Math.floor(diffLove / (1000 * 60 * 60 * 24));
+        const loveNum = document.getElementById('love-days');
+        if (loveNum) loveNum.innerText = daysLove;
+
+        // 2. Đồng hồ đếm ngày yêu (Giờ, phút, giây)
+        const hours = Math.floor((diffLove % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((diffLove % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((diffLove % (1000 * 60)) / 1000);
+        const loveTime = document.getElementById('love-time');
+        if (loveTime) loveTime.innerText = `${hours.toString().padStart(2, '0')} giờ ${minutes.toString().padStart(2, '0')} phút ${seconds.toString().padStart(2, '0')} giây`;
+
+        // 3. Cập nhật ngày thi
+        const diffExam = examDate - now;
+        const daysExam = Math.floor(diffExam / (1000 * 60 * 60 * 24));
+        const examNum = document.getElementById('exam-days');
+        if (examNum) examNum.innerText = daysExam;
+        
+        // 4. Cập nhật ngày sinh nhật
+        const diffBday = bdayDate - now;
+        const daysBday = Math.floor(diffBday / (1000 * 60 * 60 * 24));
+        const bdayNum = document.getElementById('bday-days');
+        if (bdayNum) bdayNum.innerText = daysBday;
+    }, 1000);
+                </script>
   </body>
 </html>
