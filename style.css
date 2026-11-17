@@ -1859,3 +1859,12 @@
           font-size: 0.5rem;
         }
       }
+/* Đoạn code chữa cháy - Ép web phải hiển thị */
+body, html, .hero, .stage, #bg {
+    display: block !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+}
+#dt-toast {
+    display: none !important; /* Ẩn cái bảng đen Access Denied */
+}
